@@ -1,12 +1,87 @@
-# Portafolio
+# Portafolio — Andrés Felipe Guerrero Macías
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Portafolio personal construido con **Angular 17** y conectado a **Supabase** para gestión de contenido dinámico. Diseño propio con sistema de tokens CSS, arquitectura standalone y despliegue en Vercel.
 
-## Development server
+## Tecnologías
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Framework:** Angular 17 (standalone components, sin SSR)
+- **Estilos:** SCSS con design tokens CSS personalizados
+- **Backend / BD:** Supabase (PostgreSQL + RLS + API REST)
+- **Tipografías:** Newsreader · Inter · JetBrains Mono
+- **Despliegue:** Vercel
 
-## Code scaffolding
+## Secciones
+
+| Sección | Descripción |
+|---|---|
+| Hero | Presentación, descarga de CV y contacto por email |
+| Stack | Tecnologías frontend, backend y bases de datos |
+| Proyectos | Carrusel con autoplay y vista expandida |
+| Experiencia | Timeline profesional con tags y logros |
+| Educación | Tarjetas de formación académica y certificaciones |
+
+## Instalación local
+
+```bash
+# Clonar el repositorio
+git clone git@github-felipo28:felipo28/portafolio.git
+cd portafolio
+
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo
+ng serve
+```
+
+Abre `http://localhost:4200` en el navegador.
+
+## Variables de entorno
+
+Copia el archivo de ejemplo y añade tus credenciales de Supabase:
+
+```bash
+cp src/environments/environment.example.ts src/environments/environment.ts
+cp src/environments/environment.example.ts src/environments/environment.prod.ts
+```
+
+Edita ambos archivos con tu `supabaseUrl` y `supabaseKey` (anon key) desde el panel de Supabase → **Settings → API**.
+
+> Los archivos `environment.ts` están en `.gitignore` y no se suben al repositorio.
+
+## Base de datos (Supabase)
+
+Tres tablas con lectura pública via RLS:
+
+- `projects` — proyectos del carrusel
+- `experience` — trayectoria profesional
+- `education` — formación y certificaciones
+
+El script de seed está en `supabase/seed.sql`.
+
+## Estructura del proyecto
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── hero/
+│   │   ├── navbar/
+│   │   ├── stack/
+│   │   ├── projects/
+│   │   ├── experience/
+│   │   └── footer/
+│   └── services/
+│       └── data.service.ts
+├── environments/
+└── styles.scss
+```
+
+## Contacto
+
+**Andrés Felipe Guerrero Macías**
+[LinkedIn](https://www.linkedin.com/in/andres-felipe-guerrero-macias-113926185/) · pipegmacias00@gmail.com
+
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 

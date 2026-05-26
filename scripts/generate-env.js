@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseUrl = (process.env.SUPABASE_URL || '').trim();
+const supabaseKey = (process.env.SUPABASE_KEY || '').trim();
 
 if (!supabaseUrl || !supabaseKey) {
   console.error('Error: SUPABASE_URL y SUPABASE_KEY son requeridos');

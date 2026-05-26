@@ -6,10 +6,14 @@ const supabaseKey = process.env.SUPABASE_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
   console.error('Error: SUPABASE_URL y SUPABASE_KEY son requeridos');
+  console.error('SUPABASE_URL:', supabaseUrl ? 'set' : 'NOT SET');
+  console.error('SUPABASE_KEY:', supabaseKey ? 'set' : 'NOT SET');
   process.exit(1);
 }
 
 const envDir = path.join(__dirname, '..', 'src', 'environments');
+fs.mkdirSync(envDir, { recursive: true });
+console.log('Escribiendo archivos en:', envDir);
 
 const devContent =
   `export const environment = {\n` +

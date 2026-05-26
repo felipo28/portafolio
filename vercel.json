@@ -1,7 +1,6 @@
 {
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "dist/portafolio/browser",
-  "framework": "angular",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

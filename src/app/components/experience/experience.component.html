@@ -1,0 +1,58 @@
+<section class="experience" id="experiencia">
+  <div class="experience__inner">
+    <div class="experience__header">
+      <h2 class="experience__title">Trayectoria Profesional</h2>
+      <p class="experience__subtitle">Mi recorrido profesional: empresas donde he trabajado, tecnologías que he usado y lo que he logrado en cada etapa.</p>
+    </div>
+
+    <div class="experience__timeline">
+      <div class="experience__item" *ngFor="let exp of experiences; let last = last" [class.experience__item--active]="exp.active">
+        <div class="experience__line-col">
+          <div class="experience__dot" [class.experience__dot--active]="exp.active"></div>
+          <div class="experience__connector"></div>
+        </div>
+
+        <div class="experience__content">
+          <div class="experience__top">
+            <div class="experience__info">
+              <h3 class="experience__role">
+                {{ exp.role }}
+                <span class="experience__active-badge" *ngIf="exp.active">ACTUAL</span>
+              </h3>
+              <span class="experience__company">{{ exp.company | uppercase }}</span>
+            </div>
+            <div class="experience__right">
+              <span class="experience__period">{{ exp.period }}</span>
+              <div class="experience__tags" *ngIf="exp.tags?.length">
+                <span class="experience__tag" *ngFor="let tag of exp.tags">{{ tag | uppercase }}</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="experience__desc">{{ exp.description }}</p>
+
+          <ul class="experience__highlights" *ngIf="exp.highlights?.length">
+            <li class="experience__highlight" *ngFor="let h of exp.highlights">
+              <span class="experience__check">&#10003;</span>
+              {{ h }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="education">
+      <h3 class="education__title">Educación y Certificaciones</h3>
+      <div class="education__grid">
+        <div class="education__card" *ngFor="let ed of education">
+          <div class="education__icon">{{ ed.icon }}</div>
+          <div class="education__body">
+            <span class="education__type">{{ ed.type | uppercase }}</span>
+            <strong class="education__name">{{ ed.title }}</strong>
+            <span class="education__institution">{{ ed.institution }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

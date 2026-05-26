@@ -1,0 +1,83 @@
+<section class="projects" id="portafolio">
+  <div class="projects__inner">
+    <div class="projects__header">
+      <h2 class="projects__title">Proyectos Seleccionados</h2>
+      <p class="projects__subtitle">Proyectos reales que he construido: desde aplicaciones propias hasta soluciones desplegadas en producción.</p>
+    </div>
+
+    <!-- Slider -->
+    <ng-container *ngIf="!showAll">
+      <div class="projects__viewport">
+        <div class="projects__track" [ngStyle]="trackStyle">
+          <div class="projects__card-wrap"
+               *ngFor="let p of projects; trackBy: trackByIndex"
+               [style.width]="cardWrapWidth">
+            <div class="projects__card">
+              <div class="projects__card-image">
+                <img [src]="p.image" [alt]="p.title" loading="lazy" />
+              </div>
+              <div class="projects__card-body">
+                <div class="projects__tags">
+                  <span class="projects__tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+                </div>
+                <h3 class="projects__card-title">{{ p.title }}</h3>
+                <p class="projects__card-desc">{{ p.description }}</p>
+                <div class="projects__card-links" *ngIf="(p.demo && p.demo !== '#') || (p.code && p.code !== '#')">
+                  <a *ngIf="p.demo && p.demo !== '#'" [href]="p.demo" class="projects__link" target="_blank" rel="noopener">
+                    <span class="projects__link-icon">&#128065;</span> Demo
+                  </a>
+                  <a *ngIf="p.code && p.code !== '#'" [href]="p.code" class="projects__link projects__link--code" target="_blank" rel="noopener">
+                    &lt;/&gt; Código
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects__pagination">
+        <button class="projects__btn" (click)="prev()" aria-label="Anterior">&lsaquo;</button>
+        <button
+          *ngFor="let i of dots; trackBy: trackByIndex"
+          class="projects__dot"
+          [class.projects__dot--active]="i === currentIndex"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Ir al grupo ' + (i + 1)"
+        ></button>
+        <button class="projects__btn" (click)="next()" aria-label="Siguiente">&rsaquo;</button>
+      </div>
+    </ng-container>
+
+    <!-- Todos los proyectos -->
+    <div class="projects__grid" *ngIf="showAll">
+      <div class="projects__card" *ngFor="let p of projects">
+        <div class="projects__card-image">
+          <img [src]="p.image" [alt]="p.title" loading="lazy" />
+        </div>
+        <div class="projects__card-body">
+          <div class="projects__tags">
+            <span class="projects__tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+          </div>
+          <h3 class="projects__card-title">{{ p.title }}</h3>
+          <p class="projects__card-desc">{{ p.description }}</p>
+          <div class="projects__card-links" *ngIf="(p.demo && p.demo !== '#') || (p.code && p.code !== '#')">
+            <a *ngIf="p.demo && p.demo !== '#'" [href]="p.demo" class="projects__link" target="_blank" rel="noopener">
+              <span class="projects__link-icon">&#128065;</span> Demo
+            </a>
+            <a *ngIf="p.code && p.code !== '#'" [href]="p.code" class="projects__link projects__link--code" target="_blank" rel="noopener">
+              &lt;/&gt; Código
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects__more">
+      <button class="projects__more-btn" (click)="toggleAll()">
+        {{ showAll ? 'Ver menos' : 'Ver más proyectos' }}
+        <span>{{ showAll ? '↑' : '↓' }}</span>
+      </button>
+    </div>
+  </div>
+</section>

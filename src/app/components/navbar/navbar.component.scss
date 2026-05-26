@@ -1,0 +1,153 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 249, 252, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid transparent;
+  padding: 1.25rem 2.5rem;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+
+  &--scrolled {
+    background: rgba(250, 249, 252, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: var(--color-outline-subtle);
+    box-shadow: 0 1px 24px rgba(2, 36, 72, 0.06);
+  }
+
+  &__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  &__link {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+    position: relative;
+
+    &:hover {
+      color: var(--color-text);
+    }
+
+    &--active {
+      color: var(--color-text);
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        background: var(--color-primary);
+        margin-top: 3px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    right: 0;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      background: var(--color-primary-dark);
+      box-shadow: 0 4px 14px rgba(2, 36, 72, 0.25);
+    }
+  }
+
+  // Hamburger button — solo visible en móvil
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    &--open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+
+  // Responsive móvil
+  @media (max-width: 768px) {
+    padding: 0.9rem 1.25rem;
+
+    &__inner {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    &__hamburger {
+      display: flex;
+    }
+
+    &__links {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 0 0.75rem;
+
+      &--open {
+        display: flex;
+      }
+    }
+
+    &__link {
+      padding: 0.75rem 0;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--color-outline-subtle);
+
+      &:last-child { border-bottom: none; }
+
+      // Ocultar el subrayado activo en móvil (se usa padding como indicador)
+      &--active::after { display: none; }
+    }
+
+    &__cta {
+      display: none;
+    }
+  }
+}

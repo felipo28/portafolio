@@ -1,0 +1,21 @@
+<nav class="navbar" [ngClass]="{ 'navbar--scrolled': scrolled }">
+  <div class="navbar__inner">
+    <div class="navbar__links" [class.navbar__links--open]="isMenuOpen">
+      <a (click)="scrollTop($event)" href="#" class="navbar__link" [class.navbar__link--active]="activeSection === 'inicio'">Inicio</a>
+      <a href="#portafolio" (click)="closeMenu()" class="navbar__link" [class.navbar__link--active]="activeSection === 'portafolio'">Portafolio</a>
+      <a href="#experiencia" (click)="closeMenu()" class="navbar__link" [class.navbar__link--active]="activeSection === 'experiencia'">Experiencia</a>
+    </div>
+    <a href="assets/cv.pdf" download class="navbar__cta">Descargar CV</a>
+    <button
+      class="navbar__hamburger"
+      [class.navbar__hamburger--open]="isMenuOpen"
+      (click)="toggleMenu()"
+      aria-label="Menú"
+      type="button"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "echo \"export const environment = { production: true, supabaseUrl: '${SUPABASE_URL}', supabaseKey: '${SUPABASE_KEY}' };\" > src/environments/environment.prod.ts && ng build --configuration production",
+  "buildCommand": "echo \"export const environment = { production: false, supabaseUrl: '${SUPABASE_URL}', supabaseKey: '${SUPABASE_KEY}' };\" > src/environments/environment.ts && echo \"export const environment = { production: true, supabaseUrl: '${SUPABASE_URL}', supabaseKey: '${SUPABASE_KEY}' };\" > src/environments/environment.prod.ts && ng build --configuration production",
   "outputDirectory": "dist/portafolio/browser",
   "framework": "angular",
   "rewrites": [

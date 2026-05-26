@@ -6,51 +6,13 @@
     </div>
     <div class="stack__divider"></div>
     <div class="stack__grid">
-      <div class="stack__category">
+      <div class="stack__category" *ngFor="let cat of categories">
         <div class="stack__category-header">
-          <span class="stack__icon">🖥️</span>
-          <h3>Frontend</h3>
+          <span class="stack__icon">{{ cat.icon }}</span>
+          <h3>{{ cat.category }}</h3>
         </div>
         <div class="stack__tags">
-          <span class="tag">Angular</span>
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">HTML &amp; CSS</span>
-          <span class="tag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="stack__category">
-        <div class="stack__category-header">
-          <span class="stack__icon">⚙️</span>
-          <h3>Backend</h3>
-        </div>
-        <div class="stack__tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">NestJS</span>
-          <span class="tag">REST API</span>
-          <span class="tag">Firebase</span>
-        </div>
-      </div>
-      <div class="stack__category">
-        <div class="stack__category-header">
-          <span class="stack__icon">🗄️</span>
-          <h3>Base de Datos</h3>
-        </div>
-        <div class="stack__tags">
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">MongoDB</span>
-        </div>
-      </div>
-      <div class="stack__category">
-        <div class="stack__category-header">
-          <span class="stack__icon">🛠️</span>
-          <h3>Herramientas</h3>
-        </div>
-        <div class="stack__tags">
-          <span class="tag">GitHub</span>
-          <span class="tag">Git</span>
+          <span class="tag" *ngFor="let item of cat.items">{{ item }}</span>
         </div>
       </div>
     </div>

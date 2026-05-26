@@ -68,4 +68,21 @@ export class DataService {
     if (error) { console.error('education:', error.message); return []; }
     return data as EducationItem[];
   }
+
+  async getStack(): Promise<StackCategory[]> {
+    const { data, error } = await this.supabase
+      .from('stack')
+      .select('*')
+      .order('order');
+    if (error) { console.error('stack:', error.message); return []; }
+    return data as StackCategory[];
+  }
+}
+
+export interface StackCategory {
+  id: number;
+  category: string;
+  icon: string;
+  items: string[];
+  order: number;
 }

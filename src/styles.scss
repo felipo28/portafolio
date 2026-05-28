@@ -30,6 +30,24 @@
   --gutter:      1.5rem;
 }
 
+/* Dark theme tokens */
+[data-theme="dark"] {
+  --color-bg:               #0f1117;
+  --color-surface:          #1a1d27;
+  --color-surface-dim:      #222536;
+  --color-surface-high:     #2a2e42;
+  --color-primary:          #2e5fa3;
+  --color-primary-dark:     #080c14;
+  --color-primary-accent:   #8aa4cf;
+  --color-on-primary:       #ffffff;
+  --color-text-accent:      #7ab8ff;
+  --color-text:             #e2e4e9;
+  --color-text-secondary:   #b8bcc8;
+  --color-outline:          #5a5f6e;
+  --color-outline-subtle:   #2e3245;
+  --color-success:          #4caf82;
+}
+
 /* Global styles */
 *, *::before, *::after {
   box-sizing: border-box;

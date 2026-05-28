@@ -5,7 +5,18 @@
       <a href="#portafolio" (click)="closeMenu()" class="navbar__link" [class.navbar__link--active]="activeSection === 'portafolio'">Portafolio</a>
       <a href="#experiencia" (click)="closeMenu()" class="navbar__link" [class.navbar__link--active]="activeSection === 'experiencia'">Experiencia</a>
     </div>
-    <a href="assets/cv.pdf" download class="navbar__cta">Descargar CV</a>
+    <div class="navbar__actions">
+      <button
+        class="navbar__theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="themeService.isDark() ? 'Activar modo claro' : 'Activar modo oscuro'"
+        type="button"
+      >
+        <svg *ngIf="themeService.isDark()" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7zm0-5a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1zm9-9h1a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2zM3 11H2a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zm14.66-6.07.7-.7a1 1 0 1 1 1.41 1.41l-.7.71a1 1 0 0 1-1.41-1.42zM5.64 18.36l-.7.7a1 1 0 0 1-1.42-1.41l.71-.71a1 1 0 0 1 1.41 1.42zm12.73.7-.71-.71a1 1 0 1 1 1.41-1.41l.71.7a1 1 0 0 1-1.41 1.42zM5.64 5.64l-.7-.7A1 1 0 0 1 6.35 3.52l.71.71a1 1 0 0 1-1.42 1.41z"/></svg>
+        <svg *ngIf="!themeService.isDark()" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      </button>
+      <a href="assets/cv.pdf" download class="navbar__cta">Descargar CV</a>
+    </div>
     <button
       class="navbar__hamburger"
       [class.navbar__hamburger--open]="isMenuOpen"

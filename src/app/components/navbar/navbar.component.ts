@@ -1,15 +1,19 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   scrolled = false;
+
+  constructor(public themeService: ThemeService) {}
+
   activeSection = 'inicio';
   isMenuOpen = false;
 
@@ -63,5 +67,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   closeMenu(): void {
     this.isMenuOpen = false;
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggle();
   }
 }

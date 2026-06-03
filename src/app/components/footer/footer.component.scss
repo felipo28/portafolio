@@ -7,7 +7,7 @@
     margin: 0 auto;
     padding: 4rem 2.5rem 3rem;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
 
     @media (max-width: 900px) {
@@ -23,6 +23,12 @@
   }
 
   // Columna marca
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__name {
     font-family: var(--font-serif);
     font-size: 1.35rem;
@@ -38,6 +44,20 @@
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.55);
     max-width: 280px;
+  }
+
+  // Columna navegación
+  &__nav {
+    text-align: center;
+  }
+
+  // Columna contacto
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    align-items: flex-end;
   }
 
   // Columnas nav y contacto
